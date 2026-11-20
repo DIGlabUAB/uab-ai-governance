@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1287" width="800" height="1287" role="img" aria-labelledby="chartTitle chartDesc" font-family="Arial, Helvetica, sans-serif">
+  <title id="chartTitle">Adoption Stages and Decision Gates</title>
+  <desc id="chartDesc">Flowchart of Adoption Stages and Decision Gates. A Decision Gate leads to Authorize Development: the AI is being designed or evaluated, and no one relies on the AI outputs for care or operational decisions. A Decision Gate leads to Authorize Pilot: limited use in a real workflow, where authorized users may rely on the AI outputs within a defined scope and period. A Decision Gate leads to Authorize Production: sustained, routine use within approved boundaries, with ongoing monitoring. After that, a review of continued use loops back to continue within approved boundaries. Each Adoption Stage has required assessments. Earlier Adoption Stage may be omitted with documented authorization from the applicable decision authority.</desc>
+  <text x="64" y="62.91" font-size="32" fill="#153129" font-weight="700" textLength="560.1" lengthAdjust="spacingAndGlyphs">Adoption Stages and Decision Gates</text>
+  <text x="64" y="90.91" font-size="17" fill="#52655D" textLength="294.8" lengthAdjust="spacingAndGlyphs">UAB Medicine AI Governance Program</text>
+  <g id="connectors" fill="#47665A">
+    <rect x="398.75" y="225" width="2.5" height="16"/>
+    <polygon points="394.0,240 406.0,240 400.0,251"/>
+    <rect x="398.75" y="393" width="2.5" height="16"/>
+    <polygon points="394.0,408 406.0,408 400.0,419"/>
+    <rect x="398.75" y="523" width="2.5" height="16"/>
+    <polygon points="394.0,538 406.0,538 400.0,549"/>
+    <rect x="398.75" y="691" width="2.5" height="16"/>
+    <polygon points="394.0,706 406.0,706 400.0,717"/>
+    <rect x="398.75" y="821" width="2.5" height="16"/>
+    <polygon points="394.0,836 406.0,836 400.0,847"/>
+    <rect x="398.75" y="989" width="2.5" height="16"/>
+    <polygon points="394.0,1004 406.0,1004 400.0,1015"/>
+  </g>
+  <g id="stage-development">
+    <rect x="65.0" y="252.0" width="670" height="140" rx="9.0" fill="#F3F8F4" stroke="#1A5632" stroke-width="2"/>
+    <path d="M 64 301 V 261 A 10 10 0 0 1 74 251 H 726 A 10 10 0 0 1 736 261 V 301 Z" fill="#1A5632"/>
+    <text x="92" y="284.59" font-size="24" fill="#FFFFFF" font-weight="700" textLength="268.0" lengthAdjust="spacingAndGlyphs">Authorize Development</text>
+    <text x="92" y="338.73" font-size="23" fill="#153129" textLength="565.2" lengthAdjust="spacingAndGlyphs">The AI is being designed or evaluated. No one relies on</text>
+    <text x="92" y="369.73" font-size="23" fill="#153129" textLength="480.7" lengthAdjust="spacingAndGlyphs">the AI outputs for care or operational decisions.</text>
+  </g>
+  <g id="stage-pilot">
+    <rect x="65.0" y="550.0" width="670" height="140" rx="9.0" fill="#F3F8F4" stroke="#1A5632" stroke-width="2"/>
+    <path d="M 64 599 V 559 A 10 10 0 0 1 74 549 H 726 A 10 10 0 0 1 736 559 V 599 Z" fill="#1A5632"/>
+    <text x="92" y="582.59" font-size="24" fill="#FFFFFF" font-weight="700" textLength="169.3" lengthAdjust="spacingAndGlyphs">Authorize Pilot</text>
+    <text x="92" y="636.73" font-size="23" fill="#153129" textLength="609.8" lengthAdjust="spacingAndGlyphs">Limited use in a real workflow. Authorized users may rely on</text>
+    <text x="92" y="667.73" font-size="23" fill="#153129" textLength="496.1" lengthAdjust="spacingAndGlyphs">the AI outputs within a defined scope and period.</text>
+  </g>
+  <g id="stage-production">
+    <rect x="65.0" y="848.0" width="670" height="140" rx="9.0" fill="#F3F8F4" stroke="#1A5632" stroke-width="2"/>
+    <path d="M 64 897 V 857 A 10 10 0 0 1 74 847 H 726 A 10 10 0 0 1 736 857 V 897 Z" fill="#1A5632"/>
+    <text x="92" y="880.59" font-size="24" fill="#FFFFFF" font-weight="700" textLength="244.0" lengthAdjust="spacingAndGlyphs">Authorize Production</text>
+    <text x="92" y="934.73" font-size="23" fill="#153129" textLength="523.0" lengthAdjust="spacingAndGlyphs">Sustained, routine use within approved boundaries,</text>
+    <text x="92" y="965.73" font-size="23" fill="#153129" textLength="249.3" lengthAdjust="spacingAndGlyphs">with ongoing monitoring.</text>
+  </g>
+  <g id="decision-gate-1">
+    <polygon points="400.0,122.25 558.75,173.0 400.0,223.75 241.25,173.0" fill="#FFFFFF" stroke="#1A5632" stroke-width="2.5" stroke-linejoin="miter"/>
+    <text x="400.0" y="167.52" font-size="21" fill="#1A5632" font-weight="700" text-anchor="middle" textLength="87.5" lengthAdjust="spacingAndGlyphs">Decision</text>
+    <text x="400.0" y="193.52" font-size="21" fill="#1A5632" font-weight="700" text-anchor="middle" textLength="46.7" lengthAdjust="spacingAndGlyphs">Gate</text>
+  </g>
+  <g id="decision-gate-2">
+    <polygon points="400.0,420.25 558.75,471.0 400.0,521.75 241.25,471.0" fill="#FFFFFF" stroke="#1A5632" stroke-width="2.5" stroke-linejoin="miter"/>
+    <text x="400.0" y="465.52" font-size="21" fill="#1A5632" font-weight="700" text-anchor="middle" textLength="87.5" lengthAdjust="spacingAndGlyphs">Decision</text>
+    <text x="400.0" y="491.52" font-size="21" fill="#1A5632" font-weight="700" text-anchor="middle" textLength="46.7" lengthAdjust="spacingAndGlyphs">Gate</text>
+  </g>
+  <g id="decision-gate-3">
+    <polygon points="400.0,718.25 558.75,769.0 400.0,819.75 241.25,769.0" fill="#FFFFFF" stroke="#1A5632" stroke-width="2.5" stroke-linejoin="miter"/>
+    <text x="400.0" y="763.52" font-size="21" fill="#1A5632" font-weight="700" text-anchor="middle" textLength="87.5" lengthAdjust="spacingAndGlyphs">Decision</text>
+    <text x="400.0" y="789.52" font-size="21" fill="#1A5632" font-weight="700" text-anchor="middle" textLength="46.7" lengthAdjust="spacingAndGlyphs">Gate</text>
+  </g>
+  <g id="review-continued-use">
+    <polygon points="400.0,1016.25 558.75,1067.0 400.0,1117.75 241.25,1067.0" fill="#F1F8F8" stroke="#007580" stroke-width="2.5" stroke-linejoin="miter"/>
+    <text x="400.0" y="1061.52" font-size="21" fill="#007580" font-weight="700" text-anchor="middle" textLength="72.4" lengthAdjust="spacingAndGlyphs">Review</text>
+    <text x="400.0" y="1087.52" font-size="21" fill="#007580" font-weight="700" text-anchor="middle" textLength="142.3" lengthAdjust="spacingAndGlyphs">continued use</text>
+  </g>
+  <g id="continued-use-loop">
+    <path d="M 558.0 1067.0 H 774 V 943.0 H 746" fill="none" stroke="#007580" stroke-width="2.5" stroke-linejoin="miter"/>
+    <polygon points="747,937.0 747,949.0 736,943.0" fill="#007580"/>
+    <text x="659.0" y="1030.0" font-size="19" fill="#007580" text-anchor="middle" textLength="129.9" lengthAdjust="spacingAndGlyphs">Continue within</text>
+    <text x="659.0" y="1054.0" font-size="19" fill="#007580" text-anchor="middle" textLength="178.5" lengthAdjust="spacingAndGlyphs">approved boundaries</text>
+  </g>
+  <g id="legend">
+    <polygon points="77.0,1163.63 90,1172.13 77.0,1180.63 64,1172.13" fill="#B2F8FF"/>
+    <polygon points="77.0,1203.63 90,1212.13 77.0,1220.63 64,1212.13" fill="#B2F8FF"/>
+    <text x="104" y="1177.32" font-size="20" fill="#153129" textLength="431.4" lengthAdjust="spacingAndGlyphs">Each Adoption Stage has required assessments.</text>
+    <text x="104" y="1217.32" font-size="20" fill="#153129" textLength="498.1" lengthAdjust="spacingAndGlyphs">Earlier Adoption Stage may be omitted with documented</text>
+    <text x="104" y="1244.32" font-size="20" fill="#153129" textLength="454.3" lengthAdjust="spacingAndGlyphs">authorization from the applicable decision authority.</text>
+  </g>
+</svg>

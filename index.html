@@ -1,0 +1,774 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UAB Medicine AI Governance</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap">
+<script>document.documentElement.setAttribute('data-theme','light');</script>
+
+<style>
+:root {
+  --green: #1A5632;
+  --teal: #007580;
+  --neutral: #F4F0EB;
+  --teal10: #E2F2EC;
+  --ink: #033319;
+  --text: #2D3B35;
+  --muted: #5A6E64;
+  --rule: #DDD9D3;
+  --white: #FFFFFF;
+  --bg: #FFFFFF;
+  --surface: #F4F0EB;
+  color-scheme: light;
+  font-family: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --green: #5DBF8A; --teal: #4DC8D4; --neutral: #12271C;
+    --teal10: #0E2A24; --ink: #E2EBE6; --text: #DAE5DE;
+    --muted: #97ADA2; --rule: #2A4538; --white: #FFFFFF;
+    --bg: #091A12; --surface: #12271C; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --green: #5DBF8A; --teal: #4DC8D4; --neutral: #12271C;
+  --teal10: #0E2A24; --ink: #E2EBE6; --text: #DAE5DE;
+  --muted: #97ADA2; --rule: #2A4538; --white: #FFFFFF;
+  --bg: #091A12; --surface: #12271C; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text);
+  font-size: 0.9375rem; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 100; background: var(--bg);
+}
+h1,h2,h3,h4 { text-wrap: balance; line-height: 1.2; color: var(--ink); }
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+img { max-width: 100%; height: auto; }
+.wrap { max-width: 64rem; margin-inline: auto; }
+
+/* ── Header ── */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: var(--bg); border-bottom: 1px solid var(--rule);
+}
+.header-inner {
+  max-width: 64rem; margin-inline: auto;
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.625rem 0; min-height: 3rem;
+}
+.logo-link { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--ink); flex-shrink: 0; }
+.logo-link:hover { text-decoration: none; }
+.logo-mark-sm { width: 32px; height: 32px; }
+.logo-label { font-size: 0.625rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--green); line-height: 1.3; }
+
+nav { display: flex; align-items: center; gap: 0; margin-left: auto; }
+nav a.nav-link {
+  font-size: 0.8125rem; font-weight: 600; color: var(--text);
+  padding: 0.375rem 0.625rem; border-radius: 5px; white-space: nowrap;
+  transition: background 0.12s;
+}
+nav a.nav-link:hover { background: var(--surface); text-decoration: none; }
+nav a.nav-link.active { color: var(--green); }
+nav a.portal-btn {
+  margin-left: 0.375rem; display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--green); color: var(--white); font-size: 0.75rem; font-weight: 700;
+  padding: 0.375rem 0.875rem; border-radius: 999px; white-space: nowrap;
+}
+nav a.portal-btn:hover { opacity: 0.9; text-decoration: none; }
+
+.mobile-toggle { display: none; background: none; border: none; color: var(--text); padding: 0.375rem; cursor: pointer; margin-left: auto; }
+@media (max-width: 860px) {
+  .mobile-toggle { display: block; }
+  nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--bg); border-bottom: 1px solid var(--rule);
+    flex-direction: column; align-items: stretch; padding: 0.375rem 1rem 0.75rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  }
+  nav.open { display: flex; }
+  nav a.nav-link { padding: 0.5rem 0.375rem; border-radius: 0; border-bottom: 1px solid var(--rule); }
+  nav a.portal-btn { margin: 0.5rem 0 0; justify-content: center; }
+}
+
+/* ── Hero — compact, warm neutral ── */
+.hero {
+  background: var(--surface);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+}
+.hero-inner {
+  max-width: 64rem; margin-inline: auto;
+  display: flex; align-items: center; gap: 2rem;
+  padding: 2rem 0;
+}
+.hero-mark { width: 100px; height: 100px; flex-shrink: 0; }
+.hero-tagline {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 700; color: var(--ink);
+  line-height: 1.3;
+}
+.hero-tagline em { font-style: normal; color: var(--teal); }
+.hero-sub { font-size: 0.875rem; color: var(--muted); margin-top: 0.25rem; }
+@media (max-width: 520px) {
+  .hero-inner { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem 0; }
+  .hero-mark { width: 72px; height: 72px; }
+}
+
+/* ── Pages ── */
+.page { display: none; }
+.page.active { display: block; }
+
+.page-header {
+  border-bottom: 3px solid var(--green); padding: 1rem 0 0.5rem;
+}
+.page-header h1 { font-size: 1.375rem; font-weight: 700; color: var(--green); }
+.page-header p { color: var(--muted); font-size: 0.8125rem; margin-top: 0.125rem; }
+
+.content { padding-block: 1rem 1.5rem; }
+.content h2 { font-size: 1.1875rem; font-weight: 700; margin-bottom: 0.375rem; color: var(--green); }
+.content h3 { font-size: 1rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.25rem; }
+.content h4 { font-size: 0.875rem; font-weight: 700; margin-top: 0.625rem; margin-bottom: 0.125rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.03em; }
+.content p { font-size: 0.875rem; line-height: 1.55; }
+.content p + p { margin-top: 0.375rem; }
+
+/* ── Tabs for subpages ── */
+.tab-bar {
+  display: flex; gap: 0; border-bottom: 2px solid var(--rule); margin-bottom: 0.75rem; overflow-x: auto;
+}
+.tab-btn {
+  background: none; border: none; border-bottom: 2px solid transparent;
+  margin-bottom: -2px; padding: 0.5rem 0.75rem; font-family: inherit;
+  font-size: 0.8125rem; font-weight: 600; color: var(--muted); cursor: pointer;
+  white-space: nowrap; transition: color 0.12s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--green); border-bottom-color: var(--green); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── Cards — compact ── */
+.card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px,100%), 1fr)); gap: 0.625rem; margin-top: 0.5rem; }
+.card {
+  background: var(--surface); border-radius: 8px; padding: 0.625rem 0.875rem;
+  border-left: 3px solid var(--green);
+}
+.card.teal { border-left-color: var(--teal); }
+.card h4 { margin: 0 0 0.25rem; font-size: 0.8125rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.03em; }
+.card.teal h4 { color: var(--teal); }
+.card p { font-size: 0.8125rem; color: var(--muted); line-height: 1.5; }
+
+/* ── Roles ── */
+.role { background: var(--surface); border-radius: 8px; padding: 0.625rem 0.875rem; margin-top: 0.5rem; }
+.role h4 { font-size: 0.75rem; color: var(--green); margin: 0 0 0.125rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.role p { font-size: 0.8125rem; color: var(--muted); line-height: 1.45; }
+
+/* ── Pathways — inline ── */
+.pathway-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; }
+.pathway-card {
+  flex: 1 1 180px; display: flex; gap: 0.625rem; align-items: flex-start;
+  background: var(--surface); border-radius: 8px; padding: 0.75rem 0.875rem;
+}
+.pathway-num {
+  width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.75rem; color: var(--white); flex-shrink: 0;
+}
+.pathway-num.teal { background: var(--teal); }
+.pathway-num.green { background: var(--green); }
+.pathway-num.dark { background: var(--ink); }
+.pathway-info h4 { margin: 0; font-size: 0.8125rem; }
+.pathway-info p { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+
+/* (Adoption stages now use inline SVG infographic) */
+
+/* ── Table — compact ── */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.8125rem; }
+.data-table th, .data-table td { padding: 0.375rem 0.625rem; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.data-table th { font-weight: 600; background: var(--surface); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+
+/* ── Outcome pills ── */
+.outcomes { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 0.5rem; }
+.pill { font-size: 0.6875rem; font-weight: 600; padding: 0.2rem 0.625rem; border-radius: 999px; }
+.pill.g { background: var(--teal10); color: #0a6b4f; }
+.pill.y { background: #FFF7E6; color: #8a6d00; }
+.pill.b { background: #EEF0F2; color: #4a5568; }
+.pill.r { background: #FDE8E8; color: #9b2c2c; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .pill.g { background: #0E2A24; color: #6DC89E; }
+  :root:not([data-theme="light"]) .pill.y { background: #2A2410; color: #D4A843; }
+  :root:not([data-theme="light"]) .pill.b { background: #1E2A2F; color: #8AACB8; }
+  :root:not([data-theme="light"]) .pill.r { background: #2D1A1A; color: #E88A8A; }
+}
+:root[data-theme="dark"] .pill.g { background: #0E2A24; color: #6DC89E; }
+:root[data-theme="dark"] .pill.y { background: #2A2410; color: #D4A843; }
+:root[data-theme="dark"] .pill.b { background: #1E2A2F; color: #8AACB8; }
+:root[data-theme="dark"] .pill.r { background: #2D1A1A; color: #E88A8A; }
+
+/* ── FAQ — compact ── */
+.faq { border-top: 1px solid var(--rule); margin-top: 0.75rem; }
+.faq-item { border-bottom: 1px solid var(--rule); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  width: 100%; background: none; border: none; padding: 0.5rem 0;
+  font-family: inherit; font-size: 0.875rem; font-weight: 600; color: var(--text);
+  cursor: pointer; text-align: left; line-height: 1.4;
+}
+.faq-chevron { width: 14px; height: 14px; flex-shrink: 0; color: var(--muted); transition: transform 0.2s; }
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-a { display: none; padding-bottom: 0.625rem; font-size: 0.8125rem; color: var(--muted); line-height: 1.55; }
+.faq-item.open .faq-a { display: block; }
+.faq-a ul { margin: 0.375rem 0 0 1.125rem; padding: 0; }
+.faq-a li { margin-bottom: 0.125rem; font-size: 0.8125rem; }
+
+/* ── CTA ── */
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.35rem; font-family: inherit;
+  font-size: 0.8125rem; font-weight: 600; padding: 0.4375rem 1rem; border-radius: 6px;
+  text-decoration: none; border: none; cursor: pointer;
+}
+.btn:hover { text-decoration: none; opacity: 0.92; }
+.btn-primary { background: var(--green); color: var(--white); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--rule); }
+
+/* ── Two-column layout for About ── */
+.about-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0.5rem; }
+@media (max-width: 600px) { .about-cols { grid-template-columns: 1fr; gap: 0.75rem; } }
+
+/* ── Collaborate extras ── */
+.principle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px,100%), 1fr)); gap: 0.625rem; margin-top: 0.75rem; }
+.principle {
+  background: var(--surface); border-radius: 8px; padding: 0.75rem 0.875rem; text-align: center;
+  border-top: 3px solid var(--green);
+}
+.principle.t2 { border-top-color: var(--teal); }
+.principle svg { width: 28px; height: 28px; margin-bottom: 0.375rem; }
+.principle h4 { font-size: 0.75rem; color: var(--green); margin: 0 0 0.25rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.principle.t2 h4 { color: var(--teal); }
+.principle p { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+
+.step-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(160px,100%), 1fr)); gap: 0.625rem; margin-top: 0.75rem; counter-reset: step; }
+.step-card { background: var(--surface); border-radius: 8px; padding: 0.75rem 0.875rem; counter-increment: step; }
+.step-card::before {
+  content: counter(step); display: flex; align-items: center; justify-content: center;
+  width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--green); color: var(--white);
+  font-size: 0.6875rem; font-weight: 700; margin-bottom: 0.375rem;
+}
+.step-card h4 { font-size: 0.75rem; color: var(--green); margin: 0 0 0.125rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.step-card p { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+
+.collab-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px,100%), 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
+.collab-card { background: var(--surface); border-radius: 8px; padding: 0.875rem 1rem; }
+.collab-card h4 { font-size: 0.8125rem; color: var(--green); margin: 0 0 0.25rem; }
+.collab-card p { font-size: 0.8125rem; color: var(--muted); line-height: 1.5; }
+.collab-card ul { margin: 0.375rem 0 0 1rem; padding: 0; }
+.collab-card li { font-size: 0.75rem; color: var(--muted); line-height: 1.4; margin-bottom: 0.125rem; }
+
+.checklist { margin-top: 0.5rem; padding: 0; list-style: none; }
+.checklist li {
+  display: flex; align-items: flex-start; gap: 0.5rem;
+  font-size: 0.8125rem; color: var(--text); padding: 0.25rem 0; line-height: 1.5;
+}
+.checklist li::before {
+  content: ""; width: 1rem; height: 1rem; flex-shrink: 0; margin-top: 0.15rem;
+  border: 1.5px solid var(--green); border-radius: 3px;
+}
+
+/* ── Footer — compact ── */
+.site-footer {
+  background: var(--surface);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+  padding-block: 1.25rem; margin-top: 1rem;
+}
+.footer-inner {
+  max-width: 64rem; margin-inline: auto;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem;
+}
+.footer-label { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--green); line-height: 1.3; }
+.footer-note { font-size: 0.75rem; color: var(--muted); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.875rem; }
+.footer-links a { font-size: 0.75rem; font-weight: 600; color: var(--muted); }
+.footer-links a:hover { color: var(--green); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+</style>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo-link" data-nav="home">
+      <svg class="logo-mark-sm" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+        <circle cx="40" cy="40" r="5" fill="var(--green)"/>
+        <path d="M40 20 A20 20 0 0 1 60 40" stroke="var(--green)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M20 40 A20 20 0 0 1 40 20" stroke="var(--green)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.35"/>
+        <path d="M40 60 A20 20 0 0 1 20 40" stroke="var(--green)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.35"/>
+        <path d="M60 40 A20 20 0 0 1 40 60" stroke="var(--teal)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="40" cy="40" r="30" stroke="var(--muted)" stroke-width="1.25" fill="none" opacity="0.18"/>
+      </svg>
+      <span class="logo-label">UAB Medicine<br>AI Governance Program</span>
+    </a>
+    <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#about" class="nav-link active" data-nav="about">About Us</a>
+      <a href="#oversight" class="nav-link" data-nav="oversight">AIM-HC Oversight</a>
+      <a href="#collaborate" class="nav-link" data-nav="collaborate">Collaborate</a>
+      <a href="#resources" class="nav-link" data-nav="resources">AI Governance Resources</a>
+      <a href="https://ai.uabmc.edu" target="_blank" rel="noopener" class="portal-btn">
+        <svg width="12" height="12" viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="5" fill="currentColor"/><path d="M40 20 A20 20 0 0 1 60 40" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M60 40 A20 20 0 0 1 40 60" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5"/></svg>
+        AI Governance Portal
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="heroSection">
+  <div class="hero-inner">
+    <svg class="hero-mark" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+      <circle cx="100" cy="100" r="28" stroke="var(--muted)" stroke-width="1.5" fill="none" opacity="0.15"/>
+      <circle cx="100" cy="100" r="50" stroke="var(--muted)" stroke-width="1" fill="none" opacity="0.1"/>
+      <circle cx="100" cy="100" r="74" stroke="var(--muted)" stroke-width="0.75" fill="none" opacity="0.08"/>
+      <path d="M100 60 A40 40 0 0 1 140 100" stroke="var(--green)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <path d="M60 100 A40 40 0 0 1 100 60" stroke="var(--green)" stroke-width="4.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+      <path d="M100 140 A40 40 0 0 1 60 100" stroke="var(--green)" stroke-width="4.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+      <path d="M140 100 A40 40 0 0 1 100 140" stroke="var(--teal)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <circle cx="100" cy="100" r="9" fill="var(--green)"/>
+    </svg>
+    <div>
+      <p class="hero-tagline">Every algorithm we govern touches <em>a person</em></p>
+      <p class="hero-sub">UAB Medicine AI Governance Program &#8212; human oversight for responsible AI</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PAGE: ABOUT US ═══════ -->
+<div class="page active" id="page-about">
+  <div class="wrap">
+    <div class="page-header"><h1>About Us</h1></div>
+    <div class="content">
+      <div class="about-cols">
+        <div>
+          <h2>What We Do</h2>
+          <p>The UAB Medicine AI Governance Program supports the AI in Medicine &amp; Healthcare Committee (AIM-HC) by coordinating the evaluation of AI technologies, maintaining UAB Medicine&#8217;s Central AI Inventory, establishing standards for validation and ongoing monitoring, defining appropriate human-in-the-loop checkpoints, and managing changes throughout the AI lifecycle.</p>
+        </div>
+        <div>
+          <h2>Our Why</h2>
+          <p>We believe AI can make health care better, and we believe in the people bold enough to recognize that innovation and governance belong in the same room. Every algorithm we govern touches a person: someone&#8217;s diagnosis, someone&#8217;s timing, someone&#8217;s outcome.</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top:1.25rem;">Our Goal</h2>
+      <p>To make UAB Medicine a place where responsible innovation thrives and where clinicians, patients, and teams can embrace AI with confidence, supported by meaningful human oversight and a shared commitment to safety, equity, trust, and ethical practice.</p>
+
+      <div class="cta-row">
+        <a href="#oversight" class="btn btn-primary" data-nav="oversight">Understand the review process &#8594;</a>
+        <a href="https://ai.uabmc.edu" target="_blank" rel="noopener" class="btn btn-outline">Start an AI intake &#8594;</a>
+      </div>
+      <p style="font-size:0.6875rem; color:var(--muted); margin-top:0.25rem;">The AI Governance Portal requires UABMC login.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ PAGE: AIM-HC OVERSIGHT ═══════ -->
+<div class="page" id="page-oversight">
+  <div class="wrap">
+    <div class="page-header">
+      <h1>AIM-HC Oversight</h1>
+      <p>Governance structure, roles, and the review process</p>
+    </div>
+    <div class="content">
+
+      <div class="tab-bar" id="oversightTabs">
+        <button class="tab-btn active" data-tab="tab-scope">Purpose &amp; Scope</button>
+        <button class="tab-btn" data-tab="tab-roles">Roles &amp; Responsibilities</button>
+        <button class="tab-btn" data-tab="tab-process">Oversight Process</button>
+        <button class="tab-btn" data-tab="tab-stages">Adoption Stages</button>
+      </div>
+
+      <!-- Tab: Purpose & Scope -->
+      <div class="tab-panel active" id="tab-scope">
+        <p>The program supports responsible AI development, evaluation, adoption, and use involving UAB Medicine Enterprise data, systems, infrastructure, or licensed AI tools, or intended for patient care or operations at UAB Medicine.</p>
+        <p>The process applies whether AI is developed internally, obtained from a vendor, or enabled within an existing platform. Research-only work within this scope also starts with intake and may qualify for Expedited Review.</p>
+
+        <h3>Committee &amp; Subcommittee</h3>
+        <div class="card-row">
+          <div class="card">
+            <h4>AIM-HC Committee</h4>
+            <p>The AI in Medicine &amp; Healthcare Committee (AIM-HC) is UAB Medicine&#8217;s primary multidisciplinary body for AI governance and serves as the review body for AI use cases assigned to Full Review. It brings AI expertise and leadership to one table for the responsible adoption of AI across UAB Medicine Enterprise.</p>
+          </div>
+          <div class="card teal">
+            <h4>AIM-HC Subcommittee</h4>
+            <p>The AIM-HC Subcommittee is the core team that runs AIM-HC&#8217;s day-to-day operations and serves as the review body for AI use cases assigned to Focused Review.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Roles & Responsibilities -->
+      <div class="tab-panel" id="tab-roles">
+        <p>Every AI use case has a named person who answers for it, from the first request until the work ends or is formally transferred. How many accountable roles you name depends on the review pathway (see <em>Who to Name</em> under Oversight Process).</p>
+
+        <div class="role">
+          <h4>AI Executive Sponsor</h4>
+          <p>The leader who champions the use case, such as a department chair, service line director, or C-suite executive. This person confirms it fits institutional priorities, secures funding and staff for as long as it runs, puts a Business or Clinical Sponsor and a Model Owner in place, and sees that any conditions of approval are met.</p>
+        </div>
+        <div class="role">
+          <h4>Business or Clinical Sponsor</h4>
+          <p>A permanent faculty or staff member who speaks for the use case: what it is for, who it affects, and the workflow it fits into. This person is responsible for a complete and accurate intake form, prepares the workflow and the people who will use the AI, keeps the use within what was approved, reports problems, and tells the program before the use changes or expands. When the AI comes from a vendor, this person obtains the vendor&#8217;s transparency information and specifications for the review.</p>
+        </div>
+        <div class="role">
+          <h4>Model Owner</h4>
+          <p>The person who answers for the technical side of the AI, whether UAB Medicine built it, bought it, or turned it on in an existing platform. This person is responsible for how the AI is built or set up, tested, documented, and maintained, and supports security review, validation, and monitoring. The role starts as soon as AI is being built or tested, including in research, when that work is within the program&#8217;s scope.</p>
+        </div>
+      </div>
+
+      <!-- Tab: Oversight Process -->
+      <div class="tab-panel" id="tab-process">
+        <h3>Initial Registration and Triage</h3>
+        <p>Every AI use case within the program&#8217;s scope comes in the front door through the AI intake form. The AI Governance Program triages the request and routes it to one of three review pathways.</p>
+        <p>The intake identifies the intended AI use case, the named accountable role, technical need, and proposed activities. The program first determines whether the request qualifies for Expedited Review. For requests requiring an Adoption Stage, routing depends on the requested stage and whether the AI use case is clinical or administrative/operational.</p>
+
+        <h3>Three Review Pathways</h3>
+        <div style="overflow-x:auto; margin-top:0.5rem;">
+          <img src="AI Governance Inforgraphics/AIM-HC_Intake_and_Review_Pathways_wide.svg" alt="One intake. Three review pathways. The AI Governance Program assigns the review pathway. Submit the AI intake form, the program triages the request, and a review pathway is assigned: Expedited Review, Focused Review, or Full Review." style="width:100%; max-width:48rem; display:block;">
+        </div>
+        <div class="pathway-row" style="margin-top:1rem;">
+          <div class="pathway-card">
+            <span class="pathway-num teal">1</span>
+            <div class="pathway-info">
+              <h4>Expedited Review</h4>
+              <p>Available Tool within approved uses, or research-only work.</p>
+            </div>
+          </div>
+          <div class="pathway-card">
+            <span class="pathway-num green">2</span>
+            <div class="pathway-info">
+              <h4>Focused Review</h4>
+              <p>Any request at Development; administrative/operational requests at Pilot or Production.</p>
+            </div>
+          </div>
+          <div class="pathway-card">
+            <span class="pathway-num dark">3</span>
+            <div class="pathway-info">
+              <h4>Full Review</h4>
+              <p>Clinical requests at Pilot or Production.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Who to Name</h3>
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead><tr><th>Review Pathway</th><th>Accountable Roles</th></tr></thead>
+            <tbody>
+              <tr><td>Expedited Review &#8212; using an Available Tool</td><td>Business or Clinical Sponsor</td></tr>
+              <tr><td>Expedited Review &#8212; building or testing AI for research</td><td>Model Owner</td></tr>
+              <tr><td>Focused Review or Full Review</td><td>All three accountable roles</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tab: Adoption Stages -->
+      <div class="tab-panel" id="tab-stages">
+        <p>The UAB Medicine AI Governance Program considers both what an AI use case is intended to accomplish, and the evidence needed to support its use through defined Adoption Stages and Decision Gates.</p>
+        <p>For AI-Enabled Solutions assigned to an Adoption Stage, the process evaluates the suitability of the proposed use, readiness for real-world implementation, evidence of impact, and continued performance. Each Adoption Stage authorizes specific activities within documented approval.</p>
+
+        <div style="overflow-x:auto; margin-top:0.75rem;">
+          <img src="AI Governance Inforgraphics/AIM-HC_Adoption_Stages_and_Decision_Gates_web.svg" alt="Adoption Stages and Decision Gates flowchart. Decision Gate leads to Authorize Development, then Decision Gate to Authorize Pilot, then Decision Gate to Authorize Production, with a Review continued use loop back." style="width:100%; max-width:36rem; display:block;">
+        </div>
+
+        <p style="margin-top:1rem;">Each Decision Gate determines whether an AI-Enabled Solution may enter the requested stage, what activities are authorized, and what conditions must be met.</p>
+
+        <p style="font-weight:600; font-size:0.8125rem; margin-top:0.5rem;">Each Decision Gate ends in one of four outcomes:</p>
+        <div class="outcomes">
+          <span class="pill g">Approved</span>
+          <span class="pill y">Approved with Conditions</span>
+          <span class="pill b">Deferred</span>
+          <span class="pill r">Declined</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ PAGE: COLLABORATE ═══════ -->
+<div class="page" id="page-collaborate">
+  <div class="wrap">
+    <div class="page-header">
+      <h1>Collaborate</h1>
+      <p>Partner with us to bring responsible AI into practice at UAB Medicine</p>
+    </div>
+    <div class="content">
+
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="tab-principles">Guiding Principles</button>
+        <button class="tab-btn" data-tab="tab-engage">How to Engage</button>
+        <button class="tab-btn" data-tab="tab-training">Training &amp; Education</button>
+        <button class="tab-btn" data-tab="tab-partners">Partners &amp; Stakeholders</button>
+      </div>
+
+      <!-- Tab: Guiding Principles -->
+      <div class="tab-panel active" id="tab-principles">
+        <p>Every AI governance decision at UAB Medicine is guided by these foundational principles. They shape how we evaluate, approve, and monitor AI technologies across the enterprise.</p>
+
+        <div class="principle-grid">
+          <div class="principle">
+            <svg viewBox="0 0 28 28" fill="none"><path d="M14 3v22M3 14h22" stroke="var(--green)" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="14" r="11" stroke="var(--green)" stroke-width="1.5" fill="none"/></svg>
+            <h4>Patient Safety</h4>
+            <p>Clinical AI must demonstrate safety before any patient encounter</p>
+          </div>
+          <div class="principle t2">
+            <svg viewBox="0 0 28 28" fill="none"><path d="M5 14a9 9 0 1 1 18 0 9 9 0 0 1-18 0z" stroke="var(--teal)" stroke-width="1.5" fill="none"/><path d="M10 14l3 3 5-6" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h4>Equity &amp; Fairness</h4>
+            <p>AI must not introduce or perpetuate bias across patient populations</p>
+          </div>
+          <div class="principle">
+            <svg viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="3" stroke="var(--green)" stroke-width="1.5" fill="none"/><path d="M8 12h12M8 16h8" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <h4>Transparency</h4>
+            <p>Decisions, data, and limitations must be documented and accessible</p>
+          </div>
+          <div class="principle t2">
+            <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="10" r="4" stroke="var(--teal)" stroke-width="1.5" fill="none"/><path d="M6 24c0-5 3.5-8 8-8s8 3 8 8" stroke="var(--teal)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+            <h4>Accountability</h4>
+            <p>Every AI use case has named individuals responsible for its outcomes</p>
+          </div>
+          <div class="principle">
+            <svg viewBox="0 0 28 28" fill="none"><path d="M14 4l2.5 6H23l-5 4 2 6.5L14 17l-6 3.5 2-6.5-5-4h6.5z" stroke="var(--green)" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+            <h4>Human Oversight</h4>
+            <p>Meaningful human-in-the-loop checkpoints at every stage of the AI lifecycle</p>
+          </div>
+          <div class="principle t2">
+            <svg viewBox="0 0 28 28" fill="none"><path d="M7 21V7h14v14H7z" stroke="var(--teal)" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M7 14h14M14 7v14" stroke="var(--teal)" stroke-width="1.5"/></svg>
+            <h4>Continuous Monitoring</h4>
+            <p>Approved AI is monitored for drift, performance degradation, and safety signals</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: How to Engage -->
+      <div class="tab-panel" id="tab-engage">
+        <p>Whether you are a clinician with an idea, a vendor with a product, or a researcher exploring a new model, here is how to work with the AI Governance Program.</p>
+
+        <h3>Getting Started</h3>
+        <div class="step-row">
+          <div class="step-card">
+            <h4>Identify Your Use Case</h4>
+            <p>Define the problem, the intended users, and the data involved. Determine if the AI is for research, operations, or patient care.</p>
+          </div>
+          <div class="step-card">
+            <h4>Submit an Intake Form</h4>
+            <p>Register your use case through the <a href="https://ai.uabmc.edu" target="_blank" rel="noopener">AI Governance Portal</a>. This triggers triage and pathway assignment.</p>
+          </div>
+          <div class="step-card">
+            <h4>Engage with the Program</h4>
+            <p>The governance team will contact you to discuss scope, assign a review pathway, and identify the accountable roles.</p>
+          </div>
+          <div class="step-card">
+            <h4>Complete the Review</h4>
+            <p>Provide documentation, participate in assessments, and work through the Decision Gates for your adoption stage.</p>
+          </div>
+        </div>
+
+        <h3>Intake Readiness Checklist</h3>
+        <p>Before submitting your intake, confirm you have:</p>
+        <ul class="checklist">
+          <li>A clear description of the AI-enabled solution and its intended use</li>
+          <li>The data sources the AI will access or be trained on</li>
+          <li>Identification of the target adoption stage (Development, Pilot, or Production)</li>
+          <li>An identified Business or Clinical Sponsor and/or Model Owner</li>
+          <li>Awareness of applicable regulatory requirements (FDA, HIPAA, IRB)</li>
+          <li>Vendor documentation or technical specifications (if applicable)</li>
+        </ul>
+      </div>
+
+      <!-- Tab: Training & Education -->
+      <div class="tab-panel" id="tab-training">
+        <p>The AI Governance Program provides resources and education to help UAB Medicine teams adopt AI responsibly and understand the governance process.</p>
+
+        <div class="collab-cards">
+          <div class="collab-card">
+            <h4>AI Governance Orientation</h4>
+            <p>An overview for teams new to the AI governance process, covering the intake form, review pathways, adoption stages, and what to expect during review.</p>
+          </div>
+          <div class="collab-card">
+            <h4>Responsible AI in Healthcare</h4>
+            <p>Educational materials on bias and fairness, model validation, clinical decision support regulations, and human-in-the-loop design for healthcare AI.</p>
+          </div>
+          <div class="collab-card">
+            <h4>Sponsor &amp; Model Owner Guide</h4>
+            <p>Role-specific guidance for the people accountable for an AI use case:</p>
+            <ul>
+              <li>What documentation to prepare</li>
+              <li>How to support validation and monitoring</li>
+              <li>Ongoing obligations after approval</li>
+              <li>Change management and expansion requests</li>
+            </ul>
+          </div>
+          <div class="collab-card">
+            <h4>Vendor &amp; Procurement Guidance</h4>
+            <p>For teams evaluating third-party AI tools: how the governance review intersects with procurement, security review, and contract requirements.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Partners & Stakeholders -->
+      <div class="tab-panel" id="tab-partners">
+        <p>AI governance at UAB Medicine is a shared responsibility. The program works alongside existing institutional bodies to provide comprehensive oversight.</p>
+
+        <h3>Institutional Partners</h3>
+        <div class="collab-cards">
+          <div class="collab-card">
+            <h4>Institutional Review Board (IRB)</h4>
+            <p>Human subjects research involving AI requires IRB review. The governance program coordinates with the IRB to avoid duplication and ensure coverage.</p>
+          </div>
+          <div class="collab-card">
+            <h4>Information Security</h4>
+            <p>All AI use cases undergo security review for data handling, access controls, and infrastructure risks. The governance program facilitates this alongside its own review.</p>
+          </div>
+          <div class="collab-card">
+            <h4>Quality &amp; Patient Safety</h4>
+            <p>Clinical AI must meet quality and safety standards. The governance program works with quality committees on validation design and adverse event monitoring.</p>
+          </div>
+          <div class="collab-card">
+            <h4>Legal &amp; Compliance</h4>
+            <p>AI use cases may implicate HIPAA, state law, FDA regulations, or contractual terms. The governance program coordinates legal and compliance review as needed.</p>
+          </div>
+          <div class="collab-card">
+            <h4>Procurement</h4>
+            <p>Third-party AI products require procurement review. Governance approval is a prerequisite for purchase orders involving AI-enabled tools.</p>
+          </div>
+          <div class="collab-card">
+            <h4>Clinical Informatics &amp; IT</h4>
+            <p>Integration into UAB Medicine systems requires coordination with clinical informatics and IT for interoperability, monitoring, and infrastructure support.</p>
+          </div>
+        </div>
+
+        <h3>How AIM-HC Relates to Other Reviews</h3>
+        <p>AIM-HC review complements&#8212;but does not replace&#8212;the authority of the IRB, quality and safety committees, privacy, information security, legal, compliance, and procurement. A use case may require approvals from multiple bodies. The governance program helps navigate these intersections so teams are not left to coordinate alone.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ PAGE: RESOURCES ═══════ -->
+<div class="page" id="page-resources">
+  <div class="wrap">
+    <div class="page-header">
+      <h1>AI Governance Resources</h1>
+      <p>Regulatory guidance and answers to common questions</p>
+    </div>
+    <div class="content">
+      <h2>Regulatory Resources</h2>
+      <p>To understand how FDA policy may apply to a tool, step through the <a href="https://www.fda.gov/medical-devices/digital-health-center-excellence/digital-health-policy-navigator" target="_blank" rel="noopener">FDA Digital Health Policy Navigator</a>. For clinical decision support software, see the <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-decision-support-software" target="_blank" rel="noopener">FDA CDS guidance</a>. The program can help interpret the regulatory context for your use case.</p>
+
+      <h2 style="margin-top:1.25rem;">Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this the right place?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7.5 L10 12.5 L15 7.5"/></svg></button>
+          <div class="faq-a">Yes, if your AI work uses UAB Medicine Enterprise data (including patient information), systems, infrastructure, or licensed AI tools, or will be used in patient care or operations at UAB Medicine.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I submit an intake form?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7.5 L10 12.5 L15 7.5"/></svg></button>
+          <div class="faq-a">Go to the <a href="https://ai.uabmc.edu" target="_blank" rel="noopener">AI Governance Portal</a>. Submitting the form registers your use case and routes it to a review pathway.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What should I know before submitting?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7.5 L10 12.5 L15 7.5"/></svg></button>
+          <div class="faq-a">Have these ready:<ul><li>What type of AI-Enabled Solution it is</li><li>What data it uses</li><li>Whether it is research only or headed for operations or patient care</li><li>Who is accountable for it</li></ul></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does AIM-HC approval replace IRB, FDA, or other reviews?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7.5 L10 12.5 L15 7.5"/></svg></button>
+          <div class="faq-a">No. AIM-HC review complements the authority of the IRB, quality and safety committees, privacy, information security, legal, compliance, and procurement; it does not replace them. Likewise, approval by another body does not exempt a use case from AIM-HC review. AIM-HC approval is not FDA clearance and does not change the standard of care.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens if my use case isn&#8217;t approved?<svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7.5 L10 12.5 L15 7.5"/></svg></button>
+          <div class="faq-a">You receive the decision, the reasons, and what would be needed to proceed. Deferred use cases can return with additional evidence. Decisions may be appealed based on new information or a procedural error.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <span class="footer-label">UAB Medicine AI Governance Program</span>
+      <span class="footer-note" style="margin-left:0.75rem;">&copy; UAB Medicine. All rights reserved.</span>
+    </div>
+    <div class="footer-links">
+      <a href="#about" data-nav="about">About</a>
+      <a href="#oversight" data-nav="oversight">Oversight</a>
+      <a href="#collaborate" data-nav="collaborate">Collaborate</a>
+      <a href="#resources" data-nav="resources">Resources</a>
+      <a href="https://ai.uabmc.edu" target="_blank" rel="noopener">Portal</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var pages = { about: 'page-about', oversight: 'page-oversight', collaborate: 'page-collaborate', resources: 'page-resources' };
+
+  function show(key) {
+    document.getElementById('heroSection').style.display = key === 'home' || key === 'about' ? '' : 'none';
+    Object.keys(pages).forEach(function(k) {
+      var el = document.getElementById(pages[k]);
+      if (el) el.classList.toggle('active', k === (key === 'home' ? 'about' : key));
+    });
+    document.querySelectorAll('.nav-link').forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('data-nav') === (key === 'home' ? 'about' : key));
+    });
+    window.scrollTo(0, 0);
+    document.querySelector('.main-nav').classList.remove('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('[data-nav]');
+    if (!link) return;
+    var key = link.getAttribute('data-nav');
+    if (key && (pages[key] || key === 'home')) {
+      e.preventDefault();
+      show(key);
+      history.pushState(null, '', '#' + (key === 'home' ? 'about' : key));
+    }
+  });
+
+  // Tabs
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    var bar = btn.closest('.tab-bar');
+    bar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var parent = bar.parentElement;
+    parent.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var panel = document.getElementById(btn.getAttribute('data-tab'));
+    if (panel) panel.classList.add('active');
+  });
+
+  var hash = location.hash.replace('#', '') || 'about';
+  if (pages[hash]) show(hash);
+  window.addEventListener('popstate', function() {
+    var h = location.hash.replace('#', '') || 'about';
+    if (pages[h]) show(h);
+  });
+})();
+</script>

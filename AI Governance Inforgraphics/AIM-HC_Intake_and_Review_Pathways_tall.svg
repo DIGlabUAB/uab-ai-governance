@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1085" width="800" height="1085" role="img" aria-labelledby="pathTitle pathDesc" font-family="Arial, Helvetica, sans-serif">
+  <title id="pathTitle">One intake. Three review pathways.</title>
+  <desc id="pathDesc">Diagram titled One intake. Three review pathways. The AI Governance Program assigns the review pathway. A single road shows three steps: submit the AI intake form; the AI Governance Program triages the request; a review pathway is assigned. The road then splits into three review pathways. Expedited Review: Available Tool within approved uses or research-only work. Focused Review: any request at Development; administrative/operational requests at Pilot or Production. Full Review: clinical requests at Pilot or Production.</desc>
+  <text x="40" y="58" font-size="17" fill="#1A5632" font-weight="700" textLength="365.8" lengthAdjust="spacingAndGlyphs">UAB MEDICINE AI GOVERNANCE PROGRAM</text>
+  <text x="40" y="122" font-size="54" fill="#153129" font-weight="700" textLength="291.1" lengthAdjust="spacingAndGlyphs">One intake.</text>
+  <text x="40" y="184" font-size="54" fill="#153129" font-weight="700" textLength="606.3" lengthAdjust="spacingAndGlyphs">Three review pathways.</text>
+  <text x="40" y="230" font-size="24" fill="#52655D" textLength="610.5" lengthAdjust="spacingAndGlyphs">The AI Governance Program assigns the review pathway.</text>
+  <path d="M 40 258 L 760 258" fill="none" stroke="#D1D3D4" stroke-width="1.5" stroke-linecap="butt" stroke-linejoin="round"/>
+  <path d="M 400 300 L 400 838" fill="none" stroke="#E1E8E3" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 400 568 L 400 592 C 400 704 144 664 144 776 L 144 838" fill="none" stroke="#E1E8E3" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 400 568 L 400 592 C 400 704 656 664 656 776 L 656 838" fill="none" stroke="#E1E8E3" stroke-width="39" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 400 300 L 400 838" fill="none" stroke="#48564F" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 400 568 L 400 592 C 400 704 144 664 144 776 L 144 838" fill="none" stroke="#48564F" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 400 568 L 400 592 C 400 704 656 664 656 776 L 656 838" fill="none" stroke="#48564F" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 400 320 L 400 742" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="9 9"/>
+  <path d="M 400 592 C 400 704 144 664 144 762" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="9 9"/>
+  <path d="M 400 592 C 400 704 656 664 656 762" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="9 9"/>
+  <path d="M 394 388 L 400 395 L 406 388" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 394 493 L 400 500 L 406 493" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 400 340 L 346 340" fill="none" stroke="#A5B4AA" stroke-width="1" stroke-linecap="butt" stroke-linejoin="round"/>
+  <ellipse cx="400" cy="340" rx="5" ry="5" fill="#FFFFFF"/>
+  <text x="336" y="333.09" font-size="24" fill="#153129" font-weight="700" text-anchor="end" textLength="124.0" lengthAdjust="spacingAndGlyphs">Submit the</text>
+  <text x="336" y="364.09" font-size="24" fill="#153129" font-weight="700" text-anchor="end" textLength="160.0" lengthAdjust="spacingAndGlyphs">AI intake form</text>
+  <path d="M 400 445 L 454 445" fill="none" stroke="#A5B4AA" stroke-width="1" stroke-linecap="butt" stroke-linejoin="round"/>
+  <ellipse cx="400" cy="445" rx="5" ry="5" fill="#FFFFFF"/>
+  <text x="464" y="438.09" font-size="24" fill="#153129" font-weight="700" textLength="274.8" lengthAdjust="spacingAndGlyphs">AI Governance Program</text>
+  <text x="464" y="469.09" font-size="24" fill="#153129" font-weight="700" textLength="214.7" lengthAdjust="spacingAndGlyphs">triages the request</text>
+  <path d="M 400 550 L 346 550" fill="none" stroke="#A5B4AA" stroke-width="1" stroke-linecap="butt" stroke-linejoin="round"/>
+  <ellipse cx="400" cy="550" rx="5" ry="5" fill="#FFFFFF"/>
+  <text x="336" y="543.09" font-size="24" fill="#153129" font-weight="700" text-anchor="end" textLength="185.4" lengthAdjust="spacingAndGlyphs">Review pathway</text>
+  <text x="336" y="574.09" font-size="24" fill="#153129" font-weight="700" text-anchor="end" textLength="104.0" lengthAdjust="spacingAndGlyphs">assigned</text>
+  <ellipse cx="144" cy="838" rx="11" ry="3.5" fill="#E0E6E2"/>
+  <path d="M 144 837 L 168.00 805.00 A 30 30 0 1 0 120.00 805.00 Z" fill="#007580" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="144" cy="787" r="13.3" fill="#FFFFFF"/>
+  <circle cx="144" cy="787" r="4.5" fill="#007580"/>
+  <text x="144" y="890" font-size="26" fill="#007580" font-weight="700" text-anchor="middle" textLength="221.1" lengthAdjust="spacingAndGlyphs">Expedited Review</text>
+  <text x="144" y="925" font-size="22" fill="#153129" text-anchor="middle" textLength="197.3" lengthAdjust="spacingAndGlyphs">Available Tool within</text>
+  <text x="144" y="954" font-size="22" fill="#153129" text-anchor="middle" textLength="170.0" lengthAdjust="spacingAndGlyphs">approved uses or</text>
+  <text x="144" y="983" font-size="22" fill="#153129" text-anchor="middle" textLength="192.0" lengthAdjust="spacingAndGlyphs">research-only work.</text>
+  <ellipse cx="400" cy="838" rx="11" ry="3.5" fill="#E0E6E2"/>
+  <path d="M 400 837 L 424.00 805.00 A 30 30 0 1 0 376.00 805.00 Z" fill="#1A5632" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="400" cy="787" r="13.3" fill="#FFFFFF"/>
+  <circle cx="400" cy="787" r="4.5" fill="#1A5632"/>
+  <text x="400" y="890" font-size="26" fill="#1A5632" font-weight="700" text-anchor="middle" textLength="203.7" lengthAdjust="spacingAndGlyphs">Focused Review</text>
+  <text x="400" y="925" font-size="22" fill="#153129" text-anchor="middle" textLength="141.9" lengthAdjust="spacingAndGlyphs">Any request at</text>
+  <text x="400" y="954" font-size="22" fill="#153129" text-anchor="middle" textLength="135.7" lengthAdjust="spacingAndGlyphs">Development;</text>
+  <text x="400" y="983" font-size="22" fill="#153129" text-anchor="middle" textLength="141.8" lengthAdjust="spacingAndGlyphs">administrative/</text>
+  <text x="400" y="1012" font-size="22" fill="#153129" text-anchor="middle" textLength="199.4" lengthAdjust="spacingAndGlyphs">operational requests</text>
+  <text x="400" y="1041" font-size="22" fill="#153129" text-anchor="middle" textLength="210.3" lengthAdjust="spacingAndGlyphs">at Pilot or Production.</text>
+  <ellipse cx="656" cy="838" rx="11" ry="3.5" fill="#E0E6E2"/>
+  <path d="M 656 837 L 680.00 805.00 A 30 30 0 1 0 632.00 805.00 Z" fill="#033319" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="656" cy="787" r="13.3" fill="#FFFFFF"/>
+  <circle cx="656" cy="787" r="4.5" fill="#033319"/>
+  <text x="656" y="890" font-size="26" fill="#033319" font-weight="700" text-anchor="middle" textLength="143.0" lengthAdjust="spacingAndGlyphs">Full Review</text>
+  <text x="656" y="925" font-size="22" fill="#153129" text-anchor="middle" textLength="185.9" lengthAdjust="spacingAndGlyphs">Clinical requests at</text>
+  <text x="656" y="954" font-size="22" fill="#153129" text-anchor="middle" textLength="185.9" lengthAdjust="spacingAndGlyphs">Pilot or Production.</text>
+</svg>
