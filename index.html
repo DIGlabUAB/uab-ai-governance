@@ -104,8 +104,8 @@ nav a.portal-btn:hover { opacity: 0.9; text-decoration: none; }
 /* ── Hero — compact, warm neutral ── */
 .hero {
   background: var(--surface);
-  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
-  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+  margin-inline: calc(-1 * max(24px, env(safe-area-inset-left, 0px)));
+  padding-inline: max(24px, env(safe-area-inset-left, 0px));
 }
 .hero-inner {
   max-width: 80rem; margin-inline: auto;
@@ -245,50 +245,11 @@ nav a.portal-btn:hover { opacity: 0.9; text-decoration: none; }
 .about-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0.5rem; }
 @media (max-width: 600px) { .about-cols { grid-template-columns: 1fr; gap: 0.75rem; } }
 
-/* ── Collaborate extras ── */
-.principle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px,100%), 1fr)); gap: 0.625rem; margin-top: 0.75rem; }
-.principle {
-  background: var(--surface); border-radius: 8px; padding: 0.75rem 0.875rem; text-align: center;
-  border-top: 3px solid var(--green);
-}
-.principle.t2 { border-top-color: var(--teal); }
-.principle svg { width: 28px; height: 28px; margin-bottom: 0.375rem; }
-.principle h4 { font-size: 0.75rem; color: var(--green); margin: 0 0 0.25rem; text-transform: uppercase; letter-spacing: 0.03em; }
-.principle.t2 h4 { color: var(--teal); }
-.principle p { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
-
-.step-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(160px,100%), 1fr)); gap: 0.625rem; margin-top: 0.75rem; counter-reset: step; }
-.step-card { background: var(--surface); border-radius: 8px; padding: 0.75rem 0.875rem; counter-increment: step; }
-.step-card::before {
-  content: counter(step); display: flex; align-items: center; justify-content: center;
-  width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--green); color: var(--white);
-  font-size: 0.6875rem; font-weight: 700; margin-bottom: 0.375rem;
-}
-.step-card h4 { font-size: 0.75rem; color: var(--green); margin: 0 0 0.125rem; text-transform: uppercase; letter-spacing: 0.03em; }
-.step-card p { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
-
-.collab-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px,100%), 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
-.collab-card { background: var(--surface); border-radius: 8px; padding: 0.875rem 1rem; }
-.collab-card h4 { font-size: 0.8125rem; color: var(--green); margin: 0 0 0.25rem; }
-.collab-card p { font-size: 0.8125rem; color: var(--muted); line-height: 1.5; }
-.collab-card ul { margin: 0.375rem 0 0 1rem; padding: 0; }
-.collab-card li { font-size: 0.75rem; color: var(--muted); line-height: 1.4; margin-bottom: 0.125rem; }
-
-.checklist { margin-top: 0.5rem; padding: 0; list-style: none; }
-.checklist li {
-  display: flex; align-items: flex-start; gap: 0.5rem;
-  font-size: 0.8125rem; color: var(--text); padding: 0.25rem 0; line-height: 1.5;
-}
-.checklist li::before {
-  content: ""; width: 1rem; height: 1rem; flex-shrink: 0; margin-top: 0.15rem;
-  border: 1.5px solid var(--green); border-radius: 3px;
-}
-
 /* ── Footer — compact ── */
 .site-footer {
   background: var(--surface);
-  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
-  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+  margin-inline: calc(-1 * max(24px, env(safe-area-inset-left, 0px)));
+  padding-inline: max(24px, env(safe-area-inset-left, 0px));
   padding-block: 1.25rem; margin-top: 1rem;
 }
 .footer-inner {
@@ -327,7 +288,7 @@ nav a.portal-btn:hover { opacity: 0.9; text-decoration: none; }
     <nav class="main-nav" id="mainNav">
       <a href="#about" class="nav-link active" data-nav="about">About Us</a>
       <a href="#oversight" class="nav-link" data-nav="oversight">AIM-HC Oversight</a>
-      <a href="#collaborate" class="nav-link" data-nav="collaborate">Collaborate</a>
+
       <a href="#resources" class="nav-link" data-nav="resources">AI Governance Resources</a>
       <a href="https://ai.uabmc.edu" target="_blank" rel="noopener" class="portal-btn">
         <svg width="12" height="12" viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="5" fill="currentColor"/><path d="M40 20 A20 20 0 0 1 60 40" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M60 40 A20 20 0 0 1 40 60" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5"/></svg>
@@ -369,7 +330,7 @@ nav a.portal-btn:hover { opacity: 0.9; text-decoration: none; }
         </div>
         <div>
           <h2>Our Why</h2>
-          <p>We believe AI can make health care better, and we believe in the people bold enough to recognize that innovation and governance belong in the same room. Every algorithm we govern touches a person: someone&#8217;s diagnosis, someone&#8217;s timing, someone&#8217;s outcome.</p>
+          <p>We believe AI can make health care better, and we believe in the people bold enough to recognize that innovation and governance belong in the same room. We understand that every algorithm we govern touches a person: someone&#8217;s diagnosis, someone&#8217;s timing, someone&#8217;s outcome. While some may see review boards and standards, we see the reason a clinician, a team member, and a patient can trust what happens next.</p>
         </div>
       </div>
 
@@ -508,166 +469,6 @@ nav a.portal-btn:hover { opacity: 0.9; text-decoration: none; }
   </div>
 </div>
 
-<!-- ═══════ PAGE: COLLABORATE ═══════ -->
-<div class="page" id="page-collaborate">
-  <div class="wrap">
-    <div class="page-header">
-      <h1>Collaborate</h1>
-      <p>Partner with us to bring responsible AI into practice at UAB Medicine</p>
-    </div>
-    <div class="content">
-
-      <div class="tab-bar">
-        <button class="tab-btn active" data-tab="tab-principles">Guiding Principles</button>
-        <button class="tab-btn" data-tab="tab-engage">How to Engage</button>
-        <button class="tab-btn" data-tab="tab-training">Training &amp; Education</button>
-        <button class="tab-btn" data-tab="tab-partners">Partners &amp; Stakeholders</button>
-      </div>
-
-      <!-- Tab: Guiding Principles -->
-      <div class="tab-panel active" id="tab-principles">
-        <p>Every AI governance decision at UAB Medicine is guided by these foundational principles. They shape how we evaluate, approve, and monitor AI technologies across the enterprise.</p>
-
-        <div class="principle-grid">
-          <div class="principle">
-            <svg viewBox="0 0 28 28" fill="none"><path d="M14 3v22M3 14h22" stroke="var(--green)" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="14" r="11" stroke="var(--green)" stroke-width="1.5" fill="none"/></svg>
-            <h4>Patient Safety</h4>
-            <p>Clinical AI must demonstrate safety before any patient encounter</p>
-          </div>
-          <div class="principle t2">
-            <svg viewBox="0 0 28 28" fill="none"><path d="M5 14a9 9 0 1 1 18 0 9 9 0 0 1-18 0z" stroke="var(--teal)" stroke-width="1.5" fill="none"/><path d="M10 14l3 3 5-6" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h4>Equity &amp; Fairness</h4>
-            <p>AI must not introduce or perpetuate bias across patient populations</p>
-          </div>
-          <div class="principle">
-            <svg viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="3" stroke="var(--green)" stroke-width="1.5" fill="none"/><path d="M8 12h12M8 16h8" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <h4>Transparency</h4>
-            <p>Decisions, data, and limitations must be documented and accessible</p>
-          </div>
-          <div class="principle t2">
-            <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="10" r="4" stroke="var(--teal)" stroke-width="1.5" fill="none"/><path d="M6 24c0-5 3.5-8 8-8s8 3 8 8" stroke="var(--teal)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
-            <h4>Accountability</h4>
-            <p>Every AI use case has named individuals responsible for its outcomes</p>
-          </div>
-          <div class="principle">
-            <svg viewBox="0 0 28 28" fill="none"><path d="M14 4l2.5 6H23l-5 4 2 6.5L14 17l-6 3.5 2-6.5-5-4h6.5z" stroke="var(--green)" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
-            <h4>Human Oversight</h4>
-            <p>Meaningful human-in-the-loop checkpoints at every stage of the AI lifecycle</p>
-          </div>
-          <div class="principle t2">
-            <svg viewBox="0 0 28 28" fill="none"><path d="M7 21V7h14v14H7z" stroke="var(--teal)" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M7 14h14M14 7v14" stroke="var(--teal)" stroke-width="1.5"/></svg>
-            <h4>Continuous Monitoring</h4>
-            <p>Approved AI is monitored for drift, performance degradation, and safety signals</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab: How to Engage -->
-      <div class="tab-panel" id="tab-engage">
-        <p>Whether you are a clinician with an idea, a vendor with a product, or a researcher exploring a new model, here is how to work with the AI Governance Program.</p>
-
-        <h3>Getting Started</h3>
-        <div class="step-row">
-          <div class="step-card">
-            <h4>Identify Your Use Case</h4>
-            <p>Define the problem, the intended users, and the data involved. Determine if the AI is for research, operations, or patient care.</p>
-          </div>
-          <div class="step-card">
-            <h4>Submit an Intake Form</h4>
-            <p>Register your use case through the <a href="https://ai.uabmc.edu" target="_blank" rel="noopener">AI Governance Portal</a>. This triggers triage and pathway assignment.</p>
-          </div>
-          <div class="step-card">
-            <h4>Engage with the Program</h4>
-            <p>The governance team will contact you to discuss scope, assign a review pathway, and identify the accountable roles.</p>
-          </div>
-          <div class="step-card">
-            <h4>Complete the Review</h4>
-            <p>Provide documentation, participate in assessments, and work through the Decision Gates for your adoption stage.</p>
-          </div>
-        </div>
-
-        <h3>Intake Readiness Checklist</h3>
-        <p>Before submitting your intake, confirm you have:</p>
-        <ul class="checklist">
-          <li>A clear description of the AI-enabled solution and its intended use</li>
-          <li>The data sources the AI will access or be trained on</li>
-          <li>Identification of the target adoption stage (Development, Pilot, or Production)</li>
-          <li>An identified Business or Clinical Sponsor and/or Model Owner</li>
-          <li>Awareness of applicable regulatory requirements (FDA, HIPAA, IRB)</li>
-          <li>Vendor documentation or technical specifications (if applicable)</li>
-        </ul>
-      </div>
-
-      <!-- Tab: Training & Education -->
-      <div class="tab-panel" id="tab-training">
-        <p>The AI Governance Program provides resources and education to help UAB Medicine teams adopt AI responsibly and understand the governance process.</p>
-
-        <div class="collab-cards">
-          <div class="collab-card">
-            <h4>AI Governance Orientation</h4>
-            <p>An overview for teams new to the AI governance process, covering the intake form, review pathways, adoption stages, and what to expect during review.</p>
-          </div>
-          <div class="collab-card">
-            <h4>Responsible AI in Healthcare</h4>
-            <p>Educational materials on bias and fairness, model validation, clinical decision support regulations, and human-in-the-loop design for healthcare AI.</p>
-          </div>
-          <div class="collab-card">
-            <h4>Sponsor &amp; Model Owner Guide</h4>
-            <p>Role-specific guidance for the people accountable for an AI use case:</p>
-            <ul>
-              <li>What documentation to prepare</li>
-              <li>How to support validation and monitoring</li>
-              <li>Ongoing obligations after approval</li>
-              <li>Change management and expansion requests</li>
-            </ul>
-          </div>
-          <div class="collab-card">
-            <h4>Vendor &amp; Procurement Guidance</h4>
-            <p>For teams evaluating third-party AI tools: how the governance review intersects with procurement, security review, and contract requirements.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab: Partners & Stakeholders -->
-      <div class="tab-panel" id="tab-partners">
-        <p>AI governance at UAB Medicine is a shared responsibility. The program works alongside existing institutional bodies to provide comprehensive oversight.</p>
-
-        <h3>Institutional Partners</h3>
-        <div class="collab-cards">
-          <div class="collab-card">
-            <h4>Institutional Review Board (IRB)</h4>
-            <p>Human subjects research involving AI requires IRB review. The governance program coordinates with the IRB to avoid duplication and ensure coverage.</p>
-          </div>
-          <div class="collab-card">
-            <h4>Information Security</h4>
-            <p>All AI use cases undergo security review for data handling, access controls, and infrastructure risks. The governance program facilitates this alongside its own review.</p>
-          </div>
-          <div class="collab-card">
-            <h4>Quality &amp; Patient Safety</h4>
-            <p>Clinical AI must meet quality and safety standards. The governance program works with quality committees on validation design and adverse event monitoring.</p>
-          </div>
-          <div class="collab-card">
-            <h4>Legal &amp; Compliance</h4>
-            <p>AI use cases may implicate HIPAA, state law, FDA regulations, or contractual terms. The governance program coordinates legal and compliance review as needed.</p>
-          </div>
-          <div class="collab-card">
-            <h4>Procurement</h4>
-            <p>Third-party AI products require procurement review. Governance approval is a prerequisite for purchase orders involving AI-enabled tools.</p>
-          </div>
-          <div class="collab-card">
-            <h4>Clinical Informatics &amp; IT</h4>
-            <p>Integration into UAB Medicine systems requires coordination with clinical informatics and IT for interoperability, monitoring, and infrastructure support.</p>
-          </div>
-        </div>
-
-        <h3>How AIM-HC Relates to Other Reviews</h3>
-        <p>AIM-HC review complements&#8212;but does not replace&#8212;the authority of the IRB, quality and safety committees, privacy, information security, legal, compliance, and procurement. A use case may require approvals from multiple bodies. The governance program helps navigate these intersections so teams are not left to coordinate alone.</p>
-      </div>
-
-    </div>
-  </div>
-</div>
-
 <!-- ═══════ PAGE: RESOURCES ═══════ -->
 <div class="page" id="page-resources">
   <div class="wrap">
@@ -716,7 +517,7 @@ nav a.portal-btn:hover { opacity: 0.9; text-decoration: none; }
     <div class="footer-links">
       <a href="#about" data-nav="about">About</a>
       <a href="#oversight" data-nav="oversight">Oversight</a>
-      <a href="#collaborate" data-nav="collaborate">Collaborate</a>
+
       <a href="#resources" data-nav="resources">Resources</a>
       <a href="https://ai.uabmc.edu" target="_blank" rel="noopener">Portal</a>
     </div>
@@ -725,7 +526,7 @@ nav a.portal-btn:hover { opacity: 0.9; text-decoration: none; }
 
 <script>
 (function() {
-  var pages = { about: 'page-about', oversight: 'page-oversight', collaborate: 'page-collaborate', resources: 'page-resources' };
+  var pages = { about: 'page-about', oversight: 'page-oversight', resources: 'page-resources' };
 
   function show(key) {
     document.getElementById('heroSection').style.display = key === 'home' || key === 'about' ? '' : 'none';
